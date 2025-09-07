@@ -19,4 +19,5 @@ ENV MINIO_ROOT_PASSWORD=admin123
 
 # Script de arranque: MinIO en background + Nginx en foreground
 CMD minio server /data --address ":9000" --console-address ":9090" & \
+    sed -i "s/8080/${PORT}/g" /etc/nginx/nginx.conf && \
     nginx -g 'daemon off;'
