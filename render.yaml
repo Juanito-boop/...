@@ -9,6 +9,6 @@ services:
       - key: MINIO_ROOT_USER
         value: admin
       - key: MINIO_ROOT_PASSWORD
-        value: admin123
+        value: admin
     startCommand: >
       minio server /data --console-address ":9090" --address ":9000"
