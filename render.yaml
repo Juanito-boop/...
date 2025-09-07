@@ -3,12 +3,12 @@ services:
     name: minio
     env: docker
     plan: free
-    disk:
-      name: minio-data
-      mountPath: /data
-      sizeGB: 5
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     envVars:
       - key: MINIO_ROOT_USER
         value: admin
       - key: MINIO_ROOT_PASSWORD
-        value: admin123
+        value: supersecretpassword
+    startCommand: >
+      minio server /data --console-address ":9090" --address ":9000"
